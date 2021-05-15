@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'Ubuntu-Regular', sans-serif;
+    src: url("../font/Ubuntu-Regular.ttf");
+}
+
+:root {
+    --main-font: 'Ubuntu-Regular', sans-serif;
+    --main-color-gray: #313131;
+    --main-color-white: #fff;
+    --main-color-light-gray: #dddddd;
+    --main-color-light-gray-a: #ccc;
+    --main-color-page: #E95050;
+    --main-color-page-a: #c53c3c;
+    --main-size-h1-h2: 26px;
+
+    /* --main-color-gray: #ddd;
+    --main-color-white: #313131; */
+}
+
+/**
+ * General
+ *
+ * -------------------------------------------------------------------
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--main-font);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--main-color-white);
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/**
+ * General
+ *
+ * -------------------------------------------------------------------
+*/
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: var(--main-color-page);
+}
+
+.opps {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.p404 {
+    font-size: 8rem;
+    font-weight: bold;
+}

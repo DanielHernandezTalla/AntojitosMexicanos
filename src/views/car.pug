@@ -1,0 +1,58 @@
+include includes/head.pug
+
+//-Add the style here 
+link(rel="stylesheet", href="css/car.css")
+body 
+
+    //- button dark tema
+    button#dark-teme.button-static 
+        i(class="nav__i fas fa-moon")
+
+    //- Static label
+    #content-static.content-static.static-none
+        input(id="static__input" class="static__input" name="nameClient" placeholder="Ingresa tu nombre" focus required)
+        textarea(id="static__textarea" class="static__textarea" name="textarea" placeholder="Ingresa una nota")
+        button#button__static.button.static__button Enviar Datos 
+
+    //- Content car
+    .content__car 
+        .car 
+            h2.car__h2 Carrito de Productos 
+            hr
+            .content__article
+                //- Aqui se agregan los articulos del template
+            hr
+            .footer-article 
+                p.footer-article__p Total :
+                span.footer-article__span $400
+            button#button-enviar.button.car__enviar Confirmar orden
+        //- Loader
+        #content-loader.content-loader.content-none
+            .loader
+        #content-res.content-none
+            p#res-text.res-text 
+
+    //- Footer page 
+    footer.footer 
+        .footer__continer
+            .footer__div 
+                p.footer__p Info - Support - Marketing 
+                p.footer__p © 2021 Team Scanea y Comemela📡🖥️
+            .footer__icons 
+                i(class="footer__i fab fa-facebook-f")
+                i(class="footer__i fab fa-whatsapp")
+
+    template#template__article 
+        article.article 
+            img(class="article__img" src="" alt="Imagen del producto")
+            .article__div 
+                h3.article__h3 Producto 
+                p.article__p Lorem ipsum dolor sit amet consectetur adipisicing
+                div 
+                    label(for="number") Cantidad: 
+                    input(class="article__input" name="number" type="text" value="1")
+                span.article__span-cantidad 1 * $200
+                span.article__span-total $400
+            button.article__delete Eliminar 
+    
+    script(src="app/car.js" type="module")

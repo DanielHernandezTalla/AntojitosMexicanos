@@ -1,0 +1,74 @@
+//- Incluimos el head 
+include includes/head.pug
+
+//-Add the style here 
+link(rel="stylesheet", href="css/main.css")
+body
+
+    //- Header
+    header.header 
+        img.header__img(src="images/icono/Logo.png" alt="Logo Antojitos Mexicanos")
+        h1.header__h1 Antojitos Mexicanos Dona Panchita 
+
+    //- Navigation
+    nav#nav.nav.nav-hidden
+        ul.nav__ul 
+            //- Cargamos dinamicamente los datos del menu
+            -let navCount = 0
+            each section in sections
+                -let href="#section"+navCount
+                li.nav__li 
+                    a.nav__a(href= href)= section
+                -navCount++
+            li.nav__li 
+                a.nav__a(href="/car") 
+                    i.fas.fa-shopping-cart.nav__icon
+
+    //- Buttons Static 
+    button(id="nav__button" class="button-static button-static-menu") 
+        i(class="nav__i fas fa-bars")
+    a(id="scroll" class="button-static button-static-scroll button-static-hidden" href="#")
+        i(class="fas fa-arrow-up")
+    button(id="dark-teme" class="button-static")
+        i(class="nav__i fas fa-moon")
+
+    //- Notification Static
+    div(id="notification" class="notification notification-hidden")
+        div.notification__icon
+            i(class="nav__i fas fa-check")
+        p.notification__p  Producto agregado correctamente.
+
+    //- Main
+    main.main
+        //- Section of main
+        -let sectionCount = 0
+        each section in sections
+            -let idSection="section"+sectionCount
+            section(class="section" id= idSection)
+                -sectionCount++
+                h2.section__h2= section
+                .section__continer
+                    //- articles of section
+                    each article in articles 
+                        if article.title == section
+                            article.article
+                                img(class="article__img" src= article.imageURL alt= article.imageSRC)
+                                h3.article__h3= article.nameProduct
+                                p.article__p= article.descriptionProduct
+                                span.article__span $ #{article.precio}
+                                .article__div
+                                    label(class="article__label" for="cantidad") Cantidad:
+                                    input(class="article__input" type="number" name="cantidad" value="1")
+                                button.article__button(data-id= article.idProduct) Agregar
+
+    //- Footer
+    footer.footer
+        .footer__continer
+            .footer__div
+                p.footer__p Info - Support - Marketing
+                p.footer__p © 2021 Team Scanea y Comemela📡🖥️
+            .footer__icons
+                i(class="footer__i fab fa-facebook-f")
+                i(class="footer__i fab fa-whatsapp")
+
+    script(src="app/app.js" type="module")
